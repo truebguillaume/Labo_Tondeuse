@@ -1,7 +1,7 @@
 //---------------------------------------------------------
-// Demo           : ModelCpp
-// Fichier        : ModelCpp.cpp
-// Auteur(s)      : Trüeb Guillaume
+// Demo           : Labo_Tondeuse_Groupe_06_G
+// Fichier        : Labo_Tondeuse_Groupe_06_G.cpp
+// Auteur(s)      : Mariaux Ewan & Trüeb Guillaume
 // But            : Modèle pour démarrer un projet en C++
 // Modifications  :
 // Remarque(s)    : -
@@ -40,8 +40,8 @@ int main(){
     // - '~' : herbe haute
     // - '.' : herbe coupée
     //---------------------------------------------------------------------------
-    //                    1                   2
-    //0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8
+    //                   1                   2                   3
+    //                   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8
     Terrain terrain = { {L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,X,X,X,X},  //  0
                         {L,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,X,X,X,X},  //  1
                         {L,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,X,X,X,X},  //  2
