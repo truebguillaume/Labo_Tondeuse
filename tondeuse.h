@@ -8,10 +8,10 @@
 #include <vector>
 #include <array>
 
-enum Topologie{X, L, H, h};
+enum Topologie{X, L, H};
 
 //peut être déplacé par la suite
-std::array<char,4> affichageTopologie ={'X','#','~','.'};
+//std::array<char,4> affichageTopologie ={'X','#','~','.'};
 
 using Terrain = std::vector<std::vector<Topologie>>;
 using Tondeuse = std::array<int, 2>;
