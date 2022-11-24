@@ -9,14 +9,14 @@
 // C++ version    : C++20
 //---------------------------------------------------------
 
+
 #include "annexe.h"
 #include "tondeuse.h"
 
 using namespace std;
 
 //peut être déplacé par la suite
-std::array<char,4> affichageTopologie ={'X','#','~','.'};
-
+array<char,4> affichageTopologie ={'X','#','~','.'};
 
 
 void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){

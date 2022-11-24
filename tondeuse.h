@@ -12,15 +12,25 @@
 #ifndef LABO_TONDEUSE_TONDEUSE_H
 #define LABO_TONDEUSE_TONDEUSE_H
 
-#include <iostream>
-#include <vector>
-#include <array>
+    #include <iostream>
+    #include <vector>
+    #include <array>
 
-enum Topologie{X, L, H, h};
+    enum Topologie{X, L, H, h};
 
-using Terrain = std::vector<std::vector<Topologie>>;
-using Tondeuse = std::array<int, 2>;
+    using Terrain = std::vector<std::vector<Topologie>>;
+    using Tondeuse = std::array<int, 2>;
 
-void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool afficher);
+    /** Fonction permettant de choisir un nombre aléatoire se trouvant dans une plage d'entier donné en paramètre.
+     * -----------------------------------------------------------------------------------------------------------------
+     * @param terrain           :
+     * @param tondeuse          :
+     * @param nbreDeplacements  :
+     * @param afficher          :
+     * -----------------------------------------------------------------------------------------------------------------
+     * @return                  : -
+     * @exception               : -
+     */
+    void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool afficher);
 
 #endif //LABO_TONDEUSE_TONDEUSE_H

@@ -14,10 +14,10 @@
 
     /** Fonction permettant de choisir un nombre aléatoire se trouvant dans une plage d'entier donné en paramètre.
      * -----------------------------------------------------------------------------------------------------------------
-     * @param min               : correspond à la borne minimale acceptable pour la saisie
-     * @param max               : correspond à la borne maximale acceptable pour la saisie
+     * @param min               : correspond à la borne minimale pour le nombre aléatoire
+     * @param max               : correspond à la borne maximale pour le nombre aléatoire
      * -----------------------------------------------------------------------------------------------------------------
-     * @return                  : une valeur de type int comprenant la saisie de l'utilisateur
+     * @return                  : une valeur de type int comprenant un entier aléatoire
      * @exception               : -
      */
     int nbrAleatoire(int min, int max);
