@@ -5,6 +5,7 @@
 #ifndef LABO_TONDEUSE_TONDEUSE_H
 #define LABO_TONDEUSE_TONDEUSE_H
 
+#include <iostream>
 #include <vector>
 #include <array>
 
