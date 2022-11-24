@@ -1,66 +1,93 @@
-//
-// Created by Guillaume Trüeb on 22.11.22.
-//
+//---------------------------------------------------------
+// Demo           : Labo_Tondeuse_Groupe_06_G
+// Fichier        : tondeuse.cpp
+// Auteur(s)      : Mariaux Ewan & Trüeb Guillaume
+// But            : Modèle pour démarrer un projet en C++
+// Modifications  :
+// Remarque(s)    : -
+// Compilateur    : MinGW w64 9.0.0 / Apple clang version 14.0.0
+// C++ version    : C++20
+//---------------------------------------------------------
 
-#include <random>
-
+#include "annexe.h"
 #include "tondeuse.h"
 
 using namespace std;
 
-int nbrAleatoire(int min, int max){
+//peut être déplacé par la suite
+std::array<char,4> affichageTopologie ={'X','#','~','.'};
 
-    random_device rd;                           // obtain a random number from hardware
-    mt19937 gen(rd());                          // seed the generator
-    uniform_int_distribution<> distr(min, max); // define the range
 
-    return distr(gen);
-}
 
-void deplaceTondeuse(int nbr, int& posX, int& posY){
+void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
 
     switch (nbr) {
         case 1:
-            posY--;
+            posV--;
             break;
         case 2:
-            posX++;
+            posH++;
             break;
         case 3:
-            posY++;
+            posV++;
+            break;
         case 4:
-            posX--;
+            posH--;
+            break;
         default:
             break;
-
     }
 }
 
-bool deplacementPossible(Terrain& terrain, int posX, int posY){
+bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
 
-    if(terrain[posX][posY] == Topologie::L || terrain[posX][posY] == Topologie::X)
+    if(terrain[posV][posH] == Topologie::L || terrain[posV][posH] == Topologie::X)
         return false;
 
     return true;
 }
 
+void affichageTerrain(Terrain& terrain){
+    for(vector<Topologie>& vec : terrain)
+    {
+        for(Topologie t : vec)
+        {
+            cout << affichageTopologie[(size_t)t] << " ";
+        }
+        cout << endl;
+    }
+}
+
 void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool afficher){
 
-    int posX, posY, nbr;
+    //positon Verticale et horizontale
+    size_t posV, posH;
+    int nbr;
 
     for(int i = 0 ; i < nbreDeplacements ; ++i){
 
-        cout << "Position (x,y) : (" << tondeuse[0] << "," << tondeuse[1] << ")" << endl;
+        posV = (size_t)tondeuse[0];
+        posH = (size_t)tondeuse[1];
 
-        posX = tondeuse[0];
-        posY = tondeuse[1];
         nbr  = nbrAleatoire(1,4);
 
-        deplaceTondeuse(nbr, posX, posY);
+        deplaceTondeuse(nbr, posV, posH);
 
-        if(deplacementPossible(terrain,posX,posY)){
-            tondeuse[0] = posX;
-            tondeuse[1] = posY;
+        if(deplacementPossible(terrain, posV, posH)){
+            tondeuse[0] = (int)posV;
+            tondeuse[1] = (int)posH;
+            terrain[posV][posH] = Topologie::h;
         }
+        else
+        {
+            --i;
+        }
+
+        if(afficher){
+            system("clear");
+            affichageTerrain(terrain);
+        }
+
     }
+    affichageTerrain(terrain);
 }

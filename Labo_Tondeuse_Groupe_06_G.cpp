@@ -5,13 +5,11 @@
 // But            : Modèle pour démarrer un projet en C++
 // Modifications  :
 // Remarque(s)    : -
-// Compilateur    : Apple clang version 14.0.0
+// Compilateur    : MinGW w64 9.0.0 / Apple clang version 14.0.0
 // C++ version    : C++20
 //---------------------------------------------------------
 #include <cstdlib>
-#include <iostream>
 
-#include "annexe.h"
 #include "tondeuse.h"
 
 using namespace std;
@@ -40,7 +38,7 @@ int main(){
     // - '~' : herbe haute
     // - '.' : herbe coupée
     //---------------------------------------------------------------------------
-    //                   1                   2                   3
+    //                                       1                   2
     //                   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8
     Terrain terrain = { {L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,X,X,X,X},  //  0
                         {L,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,H,X,X,X,X},  //  1
@@ -71,7 +69,7 @@ int main(){
                         {H,H,H,H,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L} };        // 26
 
     // position initiale de la tondeuse
-    Tondeuse tondeuse = {1, 3};
+    Tondeuse tondeuse = {2,2};
 
     // tondre => n déplacements aléatoires
     tondre(terrain,      // terrain de travail

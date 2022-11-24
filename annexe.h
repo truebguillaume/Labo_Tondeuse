@@ -1,28 +1,25 @@
-//
-// Created by Guillaume Trüeb on 14.11.22.
-//
-
-#include <string>
+//---------------------------------------------------------
+// Demo           : Labo_Tondeuse_Groupe_06_G
+// Fichier        : annexe.h
+// Auteur(s)      : Mariaux Ewan & Trüeb Guillaume
+// But            : Modèle pour démarrer un projet en C++
+// Modifications  :
+// Remarque(s)    : -
+// Compilateur    : MinGW w64 9.0.0 / Apple clang version 14.0.0
+// C++ version    : C++20
+//---------------------------------------------------------
 
 #ifndef MODELCPP_ANNEXE_H
 #define MODELCPP_ANNEXE_H
 
-// Fonction permettant de faire saisir une valeur entière à un
-// utilisateur et de prendre en charge les potentielles erreurs.
-// ---------------------------------------------------------------------------------------------------------------------
-// @param MSG               : correspond au message à afficher avant la saisie
-// @param min               : correspond à la borne minimale acceptable pour la saisie
-// @param max               : correspond à la borne maximale acceptable pour la saisie
-// @param MSG_ERREUR        : correspond au message à afficher si une erreur survient
-// ---------------------------------------------------------------------------------------------------------------------
-// @retour                  : une valeur de type int comprenant la saisie de l'utilisateur
-// @exceptions              : -
-int  saisieEntier(const std::string& MSG, int min, int max, const std::string& MSG_ERREUR);
-
-// Fonction permettant de demander à l'utilisateur une question en attendant une réponse oui ou non
-// ---------------------------------------------------------------------------------------------------------------------
-// @retour                  : une valeur de type bool avec true si la réponse était oui
-// @exceptions              : -
-bool repondOui();
+    /** Fonction permettant de choisir un nombre aléatoire se trouvant dans une plage d'entier donné en paramètre.
+     * -----------------------------------------------------------------------------------------------------------------
+     * @param min               : correspond à la borne minimale acceptable pour la saisie
+     * @param max               : correspond à la borne maximale acceptable pour la saisie
+     * -----------------------------------------------------------------------------------------------------------------
+     * @return                  : une valeur de type int comprenant la saisie de l'utilisateur
+     * @exception               : -
+     */
+    int nbrAleatoire(int min, int max);
 
 #endif //MODELCPP_ANNEXE_H
