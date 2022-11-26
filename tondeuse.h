@@ -12,18 +12,21 @@
 #ifndef LABO_TONDEUSE_TONDEUSE_H
 #define LABO_TONDEUSE_TONDEUSE_H
 
-    #include <iostream>
-    #include <vector>
-    #include <array>
+    #include <vector>       // nécessaire pour les paramètres
+    #include <array>        // nécessaire pour les paramètres
 
+    // Enumeration des différents types de sol possible pour notre terrain
     enum Topologie{X, L, H, h};
 
-    using Terrain = std::vector<std::vector<Topologie>>;
+    using LigneTerrain = std::vector<Topologie>;
+    using Terrain = std::vector<LigneTerrain>;
     using Tondeuse = std::array<int, 2>;
 
-    /** Fonction permettant de choisir un nombre aléatoire se trouvant dans une plage d'entier donné en paramètre.
+    /** Fonction permettant de tondre un terrain en donnant en paramètre le terrain ainsi qu'une tondeuse.
+     *  Il faudra aussi spécifier combien de déplacement celle-ci peux faire et dire si l'on souhaite que
+     *  l'affichage se synchronise après chaque déplacement de la tondeuse.
      * -----------------------------------------------------------------------------------------------------------------
-     * @param terrain           :
+     * @param terrain           : vecteur composé de vecteur d'enum Topologie
      * @param tondeuse          :
      * @param nbreDeplacements  :
      * @param afficher          :

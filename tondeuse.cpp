@@ -9,6 +9,7 @@
 // C++ version    : C++20
 //---------------------------------------------------------
 
+#include <iostream>
 
 #include "annexe.h"
 #include "tondeuse.h"
@@ -19,6 +20,12 @@ using namespace std;
 array<char,4> affichageTopologie ={'X','#','~','.'};
 
 
+// Fonction permettant de calculer le déplacement de la tondeuse en fonction du random trouvé.
+// Les axes de déplacements sont :
+// nbr = 1 → la tondeuse monte
+// nbr = 2 → la tondeuse va vers la droite
+// nbr = 3 → la tondeuse descends
+// nbr = 4 → la tondeuse va vers la gauche
 void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
 
     switch (nbr) {
@@ -39,18 +46,22 @@ void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
     }
 }
 
+// Fonction permettant de contrôler si le déplacement de la tondeuse est possible. Si la fonction
+// retourne true c'est que le déplacement est possible. Sinon on recommence un nouveau déplacement.
 bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
 
+    // Si la nouvelle position est égale à une case limite ou une case obstacle
     if(terrain[posV][posH] == Topologie::L || terrain[posV][posH] == Topologie::X)
         return false;
 
     return true;
 }
 
+// Fonction permettant l'affichage du terrain
 void affichageTerrain(Terrain& terrain){
-    for(vector<Topologie>& vec : terrain)
+    for(LigneTerrain& ligneTerrain : terrain)
     {
-        for(Topologie t : vec)
+        for(Topologie t : ligneTerrain)
         {
             cout << affichageTopologie[(size_t)t] << " ";
         }
@@ -64,12 +75,15 @@ void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool aff
     size_t posV, posH;
     int nbr;
 
+    const int VAL_MIN = 1;
+    const int VAL_MAX = 4;
+
     for(int i = 0 ; i < nbreDeplacements ; ++i){
 
         posV = (size_t)tondeuse[0];
         posH = (size_t)tondeuse[1];
 
-        nbr  = nbrAleatoire(1,4);
+        nbr  = nbrAleatoire(VAL_MIN,VAL_MAX);
 
         deplaceTondeuse(nbr, posV, posH);
 
