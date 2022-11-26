@@ -16,6 +16,10 @@
     #include <array>        // nécessaire pour les paramètres
 
     // Enumeration des différents types de sol possible pour notre terrain
+    // - L : limite
+    // - X : obstacle
+    // - H : herbe haute
+    // - h : herbe coupée
     enum Topologie{X, L, H, h};
 
     using LigneTerrain = std::vector<Topologie>;

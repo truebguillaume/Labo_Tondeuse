@@ -20,12 +20,20 @@ using namespace std;
 array<char,4> affichageTopologie ={'X','#','~','.'};
 
 
-// Fonction permettant de calculer le déplacement de la tondeuse en fonction du random trouvé.
-// Les axes de déplacements sont :
-// nbr = 1 → la tondeuse monte
-// nbr = 2 → la tondeuse va vers la droite
-// nbr = 3 → la tondeuse descends
-// nbr = 4 → la tondeuse va vers la gauche
+    /** Fonction permettant de calculer le déplacement de la tondeuse en fonction du random trouvé.
+     * -----------------------------------------------------------------------------------------------------------------
+     * @param nbr           : axe de déplacement de la tondeuse.
+     *                          Les axes de déplacements sont :
+     *                          nbr = 1 → la tondeuse monte
+     *                          nbr = 2 → la tondeuse va vers la droite
+     *                          nbr = 3 → la tondeuse descends
+     *                          nbr = 4 → la tondeuse va vers la gauche
+     * @param posV          : positon de la tondeuse sur l'axe verticale
+     * @param posH          : positon de la tondeuse sur l'axe horizontale
+     * -----------------------------------------------------------------------------------------------------------------
+     * @return                  : -
+     * @exception               : -
+     */
 void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
 
     switch (nbr) {
@@ -48,6 +56,16 @@ void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
 
 // Fonction permettant de contrôler si le déplacement de la tondeuse est possible. Si la fonction
 // retourne true c'est que le déplacement est possible. Sinon on recommence un nouveau déplacement.
+
+    /** Fonction permettant de contrôler si le déplacement de la tondeuse est possible.
+    * -----------------------------------------------------------------------------------------------------------------
+    * @param terrain            : vecteur composé de vecteur d'enum Topologie
+    * @param posV               : positon de la tondeuse sur l'axe verticale
+    * @param posH               : positon de la tondeuse sur l'axe horizontale
+    * -----------------------------------------------------------------------------------------------------------------
+    * @return                  : retourne si le déplacement est possible. True s'il est possible
+    * @exception               : -
+    */
 bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
 
     // Si la nouvelle position est égale à une case limite ou une case obstacle
@@ -57,7 +75,13 @@ bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
     return true;
 }
 
-// Fonction permettant l'affichage du terrain
+    /** Fonction permettant l'affichage du terrain
+    * -----------------------------------------------------------------------------------------------------------------
+    * @param terrain            : vecteur composé de vecteur d'enum Topologie
+    * -----------------------------------------------------------------------------------------------------------------
+    * @return                  : -
+    * @exception               : -
+    */
 void affichageTerrain(Terrain& terrain){
     for(LigneTerrain& ligneTerrain : terrain)
     {
@@ -68,6 +92,7 @@ void affichageTerrain(Terrain& terrain){
         cout << endl;
     }
 }
+
 
 void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool afficher){
 
@@ -88,20 +113,27 @@ void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool aff
         deplaceTondeuse(nbr, posV, posH);
 
         if(deplacementPossible(terrain, posV, posH)){
+            //retourne la nouvelle position à la tondeuse
             tondeuse[0] = (int)posV;
             tondeuse[1] = (int)posH;
+
+            //coupe l'herbe haute
             terrain[posV][posH] = Topologie::h;
         }
         else
         {
+            //le déplacement n'est pas comptabilisé
             --i;
         }
 
         if(afficher){
+            //clear l'affichage afin d'avoir un seul terrain d'afficher à la fois
             system("clear");
             affichageTerrain(terrain);
         }
 
     }
+    //affiche le terrain à la fin afin d'avoir un affichage si l'utilisateur ne souhaitait pas que
+    // le terrain soit affiché à chaque déplacement
     affichageTerrain(terrain);
 }
