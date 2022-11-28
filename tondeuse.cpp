@@ -21,7 +21,7 @@ array<char,4> affichageTopologie ={'X','#','~','.'};
 
 
 /** Fonction permettant de calculer le déplacement de la tondeuse en fonction du random trouvé.
- * ----------------------------------------------------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------------------------------------
  * @param nbr           : axe de déplacement de la tondeuse.
  *                          nbr = 1 → la tondeuse monte
  *                          nbr = 2 → la tondeuse va vers la droite
@@ -29,7 +29,7 @@ array<char,4> affichageTopologie ={'X','#','~','.'};
  *                          nbr = 4 → la tondeuse va vers la gauche
  * @param posV          : positon de la tondeuse sur l'axe verticale
  * @param posH          : positon de la tondeuse sur l'axe horizontale
- * ----------------------------------------------------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------------------------------------
  * @return                  : -
  * @exception               : -
  */
@@ -63,7 +63,7 @@ void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
 * @return                  : retourne si le déplacement est possible. True s'il est possible
 * @exception               : -
 */
-bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
+bool deplacementPossible(const Terrain& terrain, size_t posV, size_t posH){
 
     // Si la nouvelle position est égale à une case limite ou une case obstacle
     if(terrain[posV][posH] == Topologie::L || terrain[posV][posH] == Topologie::X)
@@ -79,11 +79,15 @@ bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
 * @return                   : -
 * @exception                : -
 */
-void affichageTerrain(Terrain& terrain){
-    for(LigneTerrain& ligneTerrain : terrain)
+void affichageTerrain(const Terrain& terrain){
+
+    // Pour chaque ligne du terrain
+    for(const LigneTerrain& ligneTerrain : terrain)
     {
-        for(Topologie t : ligneTerrain)
+        // Pour chaques éléments de la ligne
+        for(const Topologie t : ligneTerrain)
         {
+            // Affichage du type de terrain
             cout << affichageTopologie[(size_t)t] << " ";
         }
         cout << endl;

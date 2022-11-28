@@ -16,11 +16,13 @@
 
 using namespace std;
 
-random_device                  rand_dev;
-default_random_engine          generator(rand_dev());
+// Set d'un generateur de nombre aléatoire
+// Repris de la démo : https://github.com/gmbreguet/PRG1_DEMO/blob/main/04_Fonctions/04_random.cpp
+int nbrAleatoire(int min, int max) {
 
-int nbrAleatoire(int min, int max){
+    static random_device rand_dev;
+    static default_random_engine generator(rand_dev());
 
-    uniform_int_distribution<int>  distr(min, max);
+    uniform_int_distribution<int> distr(min, max);
     return distr(generator);
 }
