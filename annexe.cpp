@@ -9,7 +9,6 @@
 // C++ version    : C++20
 //----------------------------------------------------------------------------------------------------------------------
 
-#include <iostream>
 #include <random>
 
 #include "annexe.h"
@@ -22,7 +21,6 @@ int nbrAleatoire(int min, int max) {
 
     static random_device rand_dev;
     static default_random_engine generator(rand_dev());
-
     uniform_int_distribution<int> distr(min, max);
     return distr(generator);
 }
