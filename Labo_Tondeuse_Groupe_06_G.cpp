@@ -71,7 +71,7 @@ int main(){
                         {H,H,H,H,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L} };        // 26
 
     // position initiale de la tondeuse
-    Tondeuse tondeuse = {3,2};
+    Tondeuse tondeuse = {3,1};
 
     // tondre => n déplacements aléatoires
     tondre(terrain,      // terrain de travail

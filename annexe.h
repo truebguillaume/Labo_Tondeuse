@@ -12,7 +12,7 @@
 #ifndef MODELCPP_ANNEXE_H
 #define MODELCPP_ANNEXE_H
 
-    /** Fonction permettant de choisir un nombre aléatoire se trouvant dans une plage d'entier donné en paramètre.
+    /** Fonction permettant de choisir un nombre aléatoire se trouvant dans une plage d'entier donnée en paramètre.
      * -----------------------------------------------------------------------------------------------------------------
      * @param min               : correspond à la borne minimale pour le nombre aléatoire
      * @param max               : correspond à la borne maximale pour le nombre aléatoire
