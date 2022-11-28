@@ -130,6 +130,21 @@ void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool aff
             if(terrain[posV][posH] == Topologie::H){
                 terrain[posV][posH] = Topologie::h;
             }
+
+            // Si l'affichage à chaques déplacements est demandé
+            if(afficher){
+
+                // Clear l'affichage afin d'avoir un seul terrain d'affiché à la fois
+                // Pour MacOs et Linux
+                system("clear");
+
+                // Pour Windows
+                //system("cls");
+
+                // Affichage du terrain
+                affichageTerrain(terrain);
+            }
+
         }
         else
         {
@@ -137,19 +152,6 @@ void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool aff
             --i;
         }
 
-        // Si l'affichage à chaques déplacements est demandé
-        if(afficher){
-
-            // Clear l'affichage afin d'avoir un seul terrain d'afficher à la fois
-            // Pour MacOs et Linux
-            system("clear");
-
-            // Pour Windows
-            //system("cls");
-
-            // Affichage du terrain
-            affichageTerrain(terrain);
-        }
     }
     // Affiche du terrain final
     affichageTerrain(terrain);
