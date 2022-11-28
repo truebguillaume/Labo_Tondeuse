@@ -2,7 +2,7 @@
 // Demo           : Labo_Tondeuse_Groupe_06_G
 // Fichier        : annexe.h
 // Auteur(s)      : Mariaux Ewan & Trüeb Guillaume
-// But            : Fichier mettant à disposition des fonctions globales utilisables dans plusieurs projets
+// But            : Fichier mettant à disposition des fonctions globales utilisables dans plusieurs projets.
 // Modifications  : -
 // Remarque(s)    : -
 // Compilateur    : MinGW w64 9.0.0 / Apple clang version 14.0.0
