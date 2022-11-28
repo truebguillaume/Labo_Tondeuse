@@ -1,13 +1,15 @@
-//---------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 // Demo           : Labo_Tondeuse_Groupe_06_G
 // Fichier        : Labo_Tondeuse_Groupe_06_G.cpp
 // Auteur(s)      : Mariaux Ewan & Trüeb Guillaume
-// But            : Modèle pour démarrer un projet en C++
-// Modifications  :
-// Remarque(s)    : -
+// But            : Faire un programme composé de sous-programme permettant de tondre un terrain
+//                : définit dans le programme. Rendre un programme robuste et flexible permettant
+//                : une future optimisation.
+// Modifications  : -
+// Remarque(s)    : Reprise d'un fichier main.cpp transis par M. Breguet.
 // Compilateur    : MinGW w64 9.0.0 / Apple clang version 14.0.0
 // C++ version    : C++20
-//---------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 #include <cstdlib>
 
 #include "tondeuse.h"

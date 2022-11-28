@@ -1,13 +1,13 @@
-//---------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 // Demo           : Labo_Tondeuse_Groupe_06_G
 // Fichier        : annexe.h
 // Auteur(s)      : Mariaux Ewan & Trüeb Guillaume
-// But            : Modèle pour démarrer un projet en C++
-// Modifications  :
+// But            : Fichier mettant à disposition des fonctions globales utilisables dans plusieurs projets
+// Modifications  : -
 // Remarque(s)    : -
 // Compilateur    : MinGW w64 9.0.0 / Apple clang version 14.0.0
 // C++ version    : C++20
-//---------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 
 #ifndef MODELCPP_ANNEXE_H
 #define MODELCPP_ANNEXE_H

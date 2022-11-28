@@ -1,13 +1,13 @@
-//---------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 // Demo           : Labo_Tondeuse_Groupe_06_G
 // Fichier        : tondeuse.cpp
 // Auteur(s)      : Mariaux Ewan & Trüeb Guillaume
-// But            : Modèle pour démarrer un projet en C++
+// But            : Fonctions permettant de tondre le terrain spécifié par l'utilisateur
 // Modifications  :
 // Remarque(s)    : -
 // Compilateur    : MinGW w64 9.0.0 / Apple clang version 14.0.0
 // C++ version    : C++20
-//---------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 
 #include <iostream>
 
@@ -16,24 +16,23 @@
 
 using namespace std;
 
-//peut être déplacé par la suite
+// Définition graphique des éléments du terrain
 array<char,4> affichageTopologie ={'X','#','~','.'};
 
 
-    /** Fonction permettant de calculer le déplacement de la tondeuse en fonction du random trouvé.
-     * -----------------------------------------------------------------------------------------------------------------
-     * @param nbr           : axe de déplacement de la tondeuse.
-     *                          Les axes de déplacements sont :
-     *                          nbr = 1 → la tondeuse monte
-     *                          nbr = 2 → la tondeuse va vers la droite
-     *                          nbr = 3 → la tondeuse descends
-     *                          nbr = 4 → la tondeuse va vers la gauche
-     * @param posV          : positon de la tondeuse sur l'axe verticale
-     * @param posH          : positon de la tondeuse sur l'axe horizontale
-     * -----------------------------------------------------------------------------------------------------------------
-     * @return                  : -
-     * @exception               : -
-     */
+/** Fonction permettant de calculer le déplacement de la tondeuse en fonction du random trouvé.
+ * ----------------------------------------------------------------------------------------------------------------------
+ * @param nbr           : axe de déplacement de la tondeuse.
+ *                          nbr = 1 → la tondeuse monte
+ *                          nbr = 2 → la tondeuse va vers la droite
+ *                          nbr = 3 → la tondeuse descends
+ *                          nbr = 4 → la tondeuse va vers la gauche
+ * @param posV          : positon de la tondeuse sur l'axe verticale
+ * @param posH          : positon de la tondeuse sur l'axe horizontale
+ * ----------------------------------------------------------------------------------------------------------------------
+ * @return                  : -
+ * @exception               : -
+ */
 void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
 
     switch (nbr) {
@@ -54,18 +53,16 @@ void deplaceTondeuse(int nbr, size_t& posV, size_t& posH){
     }
 }
 
-// Fonction permettant de contrôler si le déplacement de la tondeuse est possible. Si la fonction
-// retourne true c'est que le déplacement est possible. Sinon on recommence un nouveau déplacement.
-
-    /** Fonction permettant de contrôler si le déplacement de la tondeuse est possible.
-    * -----------------------------------------------------------------------------------------------------------------
-    * @param terrain            : vecteur composé de vecteur d'enum Topologie
-    * @param posV               : positon de la tondeuse sur l'axe verticale
-    * @param posH               : positon de la tondeuse sur l'axe horizontale
-    * -----------------------------------------------------------------------------------------------------------------
-    * @return                  : retourne si le déplacement est possible. True s'il est possible
-    * @exception               : -
-    */
+/** Fonction permettant de contrôler si le déplacement de la tondeuse est possible. Si la fonction
+*   retourne true c'est que le déplacement est possible. Sinon on recommence un nouveau déplacement.
+* ----------------------------------------------------------------------------------------------------------------------
+* @param terrain            : vecteur composé de vecteur d'enum Topologie
+* @param posV               : positon de la tondeuse sur l'axe verticale
+* @param posH               : positon de la tondeuse sur l'axe horizontale
+* ----------------------------------------------------------------------------------------------------------------------
+* @return                  : retourne si le déplacement est possible. True s'il est possible
+* @exception               : -
+*/
 bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
 
     // Si la nouvelle position est égale à une case limite ou une case obstacle
@@ -75,13 +72,13 @@ bool deplacementPossible(Terrain& terrain, size_t posV, size_t posH){
     return true;
 }
 
-    /** Fonction permettant l'affichage du terrain
-    * -----------------------------------------------------------------------------------------------------------------
-    * @param terrain            : vecteur composé de vecteur d'enum Topologie
-    * -----------------------------------------------------------------------------------------------------------------
-    * @return                  : -
-    * @exception               : -
-    */
+/** Fonction permettant l'affichage du terrain.
+* ----------------------------------------------------------------------------------------------------------------------
+* @param terrain            : vecteur composé de vecteur d'enum Topologie
+* ----------------------------------------------------------------------------------------------------------------------
+* @return                   : -
+* @exception                : -
+*/
 void affichageTerrain(Terrain& terrain){
     for(LigneTerrain& ligneTerrain : terrain)
     {
@@ -96,15 +93,17 @@ void affichageTerrain(Terrain& terrain){
 
 void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool afficher){
 
-    //positon Verticale et horizontale
+    // Positon verticale et horizontale
     size_t posV, posH;
     int nbr;
 
+    //Valeur min et max pour le random
     const int VAL_MIN = 1;
     const int VAL_MAX = 4;
 
     for(int i = 0 ; i < nbreDeplacements ; ++i){
 
+        //position actuelle de la tondeuse
         posV = (size_t)tondeuse[0];
         posH = (size_t)tondeuse[1];
 
@@ -127,13 +126,17 @@ void tondre(Terrain& terrain, Tondeuse& tondeuse, int nbreDeplacements, bool aff
         }
 
         if(afficher){
-            //clear l'affichage afin d'avoir un seul terrain d'afficher à la fois
+            // Clear l'affichage afin d'avoir un seul terrain d'afficher à la fois
+            // Pour MacOs et Linux
             system("clear");
+
+            // Pour Windows
+            //system("cls");
+
+            // Affichage du terrain
             affichageTerrain(terrain);
         }
-
     }
-    //affiche le terrain à la fin afin d'avoir un affichage si l'utilisateur ne souhaitait pas que
-    // le terrain soit affiché à chaque déplacement
+    // Affiche du terrain final
     affichageTerrain(terrain);
 }
